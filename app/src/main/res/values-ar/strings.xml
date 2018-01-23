@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">مصاريفي</string>
+    <string name="permission_camera_rationale">الرجاء إعطاء الاذن للكاميرا</string>
+    <string name="ok">موافق</string>
+    <string name="low_storage_error">مساحةالتخزين لا تكفي</string>
+    <string name="no_camera_permission">ليس هناك إذن لاستخدام الكاميرا</string>
+    <string name="tap_on_quantity">اضغط على سعر لالتقاط.</string>
+    <string name="scan_receipt">مسح الإيصال</string>
+    <string name="save">حفظ</string>
+    <string name="add_a_spending">إضافة مشتريات جديدة</string>
+    <string name="quantity">السعر</string>
+    <string name="description">الوصف</string>
+    <string name="delete">حذف</string>
+    <string name="edit_a_spending">التعديل على المشتريات</string>
+    <string name="turkish_lira_symbol">ر.س</string>
+    <string name="Select_Group">الرجاء اختيار النوع</string>
+
+</resources>
