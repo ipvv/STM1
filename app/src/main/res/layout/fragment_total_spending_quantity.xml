@@ -9,14 +9,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1" />
 
         <LinearLayout
             android:id="@+id/line"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
-            android:gravity="bottom"
+            android:gravity="top"
             android:orientation="horizontal">
 
             <TextView
@@ -26,6 +34,10 @@
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-thin"
                 android:gravity="center"
+                android:shadowColor="#64000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="2"
                 android:text="0.0"
                 android:textColor="#ffffff"
                 app:autoSizeTextType="uniform"
@@ -35,11 +47,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_above="@+id/line"
+            android:layout_height="20dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:gravity="end"
+            android:background="#1D04ADBF"
+            android:gravity="top"
             android:orientation="horizontal">
 
             <TextView
@@ -48,57 +59,12 @@
                 android:layout_height="match_parent"
 
 
+                android:layout_marginLeft="8dp"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="left|center"
                 android:textColor="#fff"
                 android:textSize="14sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/quantity2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="#fff"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/quantity3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="#fff"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/quantity4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="#fff"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginBottom="14dp"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:gravity="end"
-            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/quantity1_1"
@@ -108,6 +74,40 @@
 
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textColor="#fff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/progressBar3"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:max="100" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:background="#1D04ADBF"
+            android:gravity="top"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/quantity2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:gravity="left|center"
                 android:textColor="#fff"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -124,6 +124,40 @@
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
+            <ProgressBar
+                android:id="@+id/progressBar4"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:max="100" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:background="#1D04ADBF"
+            android:gravity="top"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/quantity3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:gravity="left|center"
+                android:textColor="#fff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/quantity3_3"
                 android:layout_width="match_parent"
@@ -132,6 +166,39 @@
 
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textColor="#fff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/progressBar5"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:background="#1D04ADBF"
+            android:gravity="top"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/quantity4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:gravity="left|center"
                 android:textColor="#fff"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -147,7 +214,18 @@
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
+            <ProgressBar
+                android:id="@+id/progressBar6"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:max="100" />
         </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

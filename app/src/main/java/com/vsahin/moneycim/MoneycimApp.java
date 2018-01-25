@@ -6,9 +6,6 @@ import com.vsahin.moneycim.Di.AppComponent;
 import com.vsahin.moneycim.Di.AppModule;
 import com.vsahin.moneycim.Di.DaggerAppComponent;
 
-/**
- * Created by Volkan Şahin on 17.08.2017.
- */
 
 public class MoneycimApp extends Application {
 

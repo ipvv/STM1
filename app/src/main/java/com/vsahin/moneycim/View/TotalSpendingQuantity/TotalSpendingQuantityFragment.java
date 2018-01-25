@@ -10,12 +10,14 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vsahin.moneycim.R;
 
 import java.nio.CharBuffer;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,12 +54,29 @@ public class TotalSpendingQuantityFragment extends LifecycleFragment {
     @BindView(R.id.quantity4_4)
     TextView txtQuantity4_4;
 
+
+//    progressBar
+    @BindView(R.id.progressBar3)
+    ProgressBar progressBar3;
+
+    @BindView(R.id.progressBar4)
+    ProgressBar progressBar4;
+
+    @BindView(R.id.progressBar5)
+    ProgressBar progressBar5;
+
+    @BindView(R.id.progressBar6)
+    ProgressBar progressBar6;
+
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         viewModel = ViewModelProviders.of(this).get(TotalSpendingQuantityViewModel.class);
         subscribeTotalQuantity();
-        new LongOperation().execute("");
+
+        new LongOperation().execute();
+
     }
 
     @Nullable
@@ -82,6 +101,7 @@ public class TotalSpendingQuantityFragment extends LifecycleFragment {
                 }
             }
         });
+
         //i change it
         viewModel.GetTotalSpendingQuantity1().observe(this, new Observer<Double>() {
             @Override
@@ -168,33 +188,47 @@ public class TotalSpendingQuantityFragment extends LifecycleFragment {
 
     private void settheresult() {
 
-        CalculatePercentage(txtQuantity, txtQuantity1, txtQuantity1_1);
-        CalculatePercentage(txtQuantity, txtQuantity2, txtQuantity2_2);
-        CalculatePercentage(txtQuantity, txtQuantity3, txtQuantity3_3);
-        CalculatePercentage(txtQuantity, txtQuantity4, txtQuantity4_4);
+        CalculatePercentage(txtQuantity, txtQuantity1, txtQuantity1_1,progressBar3);
+        CalculatePercentage(txtQuantity, txtQuantity2, txtQuantity2_2,progressBar4);
+        CalculatePercentage(txtQuantity, txtQuantity3, txtQuantity3_3,progressBar5);
+        CalculatePercentage(txtQuantity, txtQuantity4, txtQuantity4_4,progressBar6);
 
 
     }
 
 
-    private void CalculatePercentage(final TextView total, final TextView obtained, final TextView result) {
+    private void CalculatePercentage(final TextView total, final TextView obtained, final TextView result ,ProgressBar bar) {
 
             try {
 
                 String obtained1 = obtained.getText().toString();
+
                 obtained1 = obtained1.replaceAll("[^0-9?!\\.]", "");
 
 //        Toast.makeText(getContext(),  obtained1, Toast.LENGTH_SHORT).show();
+
                 double value = Double.parseDouble(obtained1);
 
                 String total1 = total.getText().toString();
+
                 total1 = total1.replaceAll("[^0-9?!\\.]", "");
+
                 double value1 = Double.parseDouble(total1);
 
-                Double Percentage = ((value * 100.0) / value1);
+                double Percentage = ((value * 100.0) / value1);
+
                 Percentage = Math.round(Percentage * 100.0) / 100.0;
-                String finalresult = String.valueOf(Percentage) + "%";
+                int rsult = (int)Percentage;
+
+                String finalresult = String.valueOf(rsult) + "%";
+
                 result.setText(finalresult);
+
+
+
+
+                bar.setProgress(rsult);
+
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }

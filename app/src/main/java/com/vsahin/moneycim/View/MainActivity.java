@@ -1,9 +1,8 @@
 package com.vsahin.moneycim.View;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -15,11 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
 
 import com.vsahin.moneycim.R;
 import com.vsahin.moneycim.View.AddAndEditSpending.AddAndEditSpendingFragment;
 import com.vsahin.moneycim.View.SpendingList.SpendingListFragment;
+import com.vsahin.moneycim.chartlist;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
         fragmentManager = getSupportFragmentManager();
         setSupportActionBar(toolbar);
@@ -53,19 +52,23 @@ public class MainActivity extends AppCompatActivity {
         fab.hide();
 
         //Add this fragment just at start and dont add to backstack
-        if(getFragmentBackStackCount() == 0){
+        if (getFragmentBackStackCount() == 0) {
             showRootFragment(SpendingListFragment.newInstance());
             fab.show();
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_about, menu);//Menu Resource, Menu
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+
         switch (item.getItemId()) {
             case R.id.about:
 
@@ -78,12 +81,16 @@ public class MainActivity extends AppCompatActivity {
                 builder.setMessage("STM Is an application for spending tracking money " +
                         "this application is graduation project for uqu University   ")
                         .setTitle("about")
-                .setIcon(R.drawable.stmproject);
+                        .setIcon(R.drawable.stmproject);
 
 // 3. Get the AlertDialog from create()
                 AlertDialog dialog = builder.create();
 
                 dialog.show();
+                return true;
+            case R.id.chart:
+                Intent intent = new Intent(this, chartlist.class);
+                startActivity(intent);
 
                 return true;
 
@@ -92,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void showRootFragment(Fragment fragment){
+    public void showRootFragment(Fragment fragment) {
         appBarLayout.setExpanded(true);
         fragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment)
@@ -105,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         int backStackCount = getFragmentBackStackCount();
 
         //if backstack == 1 it means this is last fragment so show fab
-        switch (backStackCount){
+        switch (backStackCount) {
             case 1:
                 fab.show();
                 break;
@@ -115,21 +122,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.fab)
-    public void openAddSpendingFragment(){
+    public void openAddSpendingFragment() {
         showFragment(AddAndEditSpendingFragment.newInstance());
 
     }
 
 
-    public void showFragment(Fragment nextFragment){
+    public void showFragment(Fragment nextFragment) {
         //be sure to not load same fragment
-        if(isLastFragmentInBackstack(nextFragment)){
+        if (isLastFragmentInBackstack(nextFragment)) {
             return;
         }
 
         fragmentManager.beginTransaction()
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out)
-                .replace(R.id.fragment_container , nextFragment)
+                .replace(R.id.fragment_container, nextFragment)
                 .addToBackStack(nextFragment.getClass().getName())
                 .commit();
 
@@ -137,30 +144,30 @@ public class MainActivity extends AppCompatActivity {
         appBarLayout.setExpanded(false);
     }
 
-    public boolean isLastFragmentInBackstack(Fragment fragment){
+    public boolean isLastFragmentInBackstack(Fragment fragment) {
         String currentFragmentName;
         String nextFragmentName = fragment.getClass().getName();
 
         //if count is 0 it means there isnt any fragment in backstack
         int count = getFragmentBackStackCount();
-        if(count != 0){
+        if (count != 0) {
             currentFragmentName = getLastFragmentNameInBackStack();
-            if(currentFragmentName.equals(nextFragmentName)){
+            if (currentFragmentName.equals(nextFragmentName)) {
                 return true;
             }
         }
         return false;
     }
 
-    public String getLastFragmentNameInBackStack(){
+    public String getLastFragmentNameInBackStack() {
         return fragmentManager.getBackStackEntryAt(getFragmentBackStackCount() - 1).getName();
     }
 
-    public int getFragmentBackStackCount(){
+    public int getFragmentBackStackCount() {
         return fragmentManager.getBackStackEntryCount();
     }
 
-    public void hideKeyboard(View v){
+    public void hideKeyboard(View v) {
         imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
     }
 }

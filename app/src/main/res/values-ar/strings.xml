@@ -14,5 +14,8 @@
     <string name="edit_a_spending">التعديل على المشتريات</string>
     <string name="turkish_lira_symbol">ر.س</string>
     <string name="Select_Group">الرجاء اختيار النوع</string>
-
+    <string name="tab_text_1">سنوي</string>
+    <string name="tab_text_2">شهري</string>
+    <string name="tab_text_3">اسبوعي</string>
+    <string name="action_settings">الضبط</string>
 </resources>

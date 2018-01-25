@@ -29,7 +29,11 @@
         </activity>
         <activity android:name=".View.MainActivity" />
         <activity android:name=".View.OCR_Scan_Receipt.OcrCaptureActivity" />
-        <activity android:name=".Chart"></activity>
+
+        <activity
+            android:name=".chartlist"
+            android:label="@string/title_activity_chartlist"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

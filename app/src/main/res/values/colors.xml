@@ -5,4 +5,5 @@
     <color name="colorAccent">#ffd74b</color>
     <color name="colorPrimaryLight">#b5f6f3</color>
     <color name="backg">#04adbf</color>
+    <color name="centertext">#E2FFFFFF</color>
 </resources>

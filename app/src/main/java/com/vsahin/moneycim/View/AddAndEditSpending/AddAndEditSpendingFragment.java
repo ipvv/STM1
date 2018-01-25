@@ -233,9 +233,7 @@ public class AddAndEditSpendingFragment extends LifecycleFragment implements Vie
         }
     }
 
-    public void showToast(String text){
-        Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
-    }
+
 
     public void hideKeyboard(View v){
         ((MainActivity)getActivity()).hideKeyboard(v);
