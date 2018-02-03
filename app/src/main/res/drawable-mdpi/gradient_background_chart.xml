@@ -4,7 +4,7 @@
     android:layout_width="match_parent">
     <item>
         <shape>
-            <gradient android:angle="270" android:endColor="@color/colorPrimary" android:gradientRadius="@android:dimen/dialog_min_width_minor" android:startColor="#fff" android:type="radial" />
+            <gradient android:angle="270" android:endColor="@color/colorPrimary" android:gradientRadius="1000dp" android:startColor="#fff" android:type="radial" />
         </shape>
     </item>
 </selector>

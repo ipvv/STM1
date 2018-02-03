@@ -59,11 +59,32 @@ public class SpendingRecyclerViewAdapter extends RecyclerView.Adapter<SpendingRe
         Date date = s.getRawSpending().getDate();
         String group = s.getGroupName();
 
+
         String quantityWithCurrency = context.getString(R.string.turkish_lira_symbol) + String.valueOf(quantity);
         viewHolder.getTxtQuantity().setText(quantityWithCurrency);
         viewHolder.getTxtDescription().setText(description);
         viewHolder.getTxtDate().setText(dateFormat.format(date));
-        viewHolder.getTxtSpendingGroup().setText(group);
+
+        switch(group) {
+            case "Gas":
+                viewHolder.getTxtSpendingGroup().setText(R.string.GAS);
+                break;
+            case "Food":
+                viewHolder.getTxtSpendingGroup().setText(R.string.FOOD);
+
+                break;
+            case "Clothes":
+                viewHolder.getTxtSpendingGroup().setText(R.string.CLOTHES);
+
+                break;
+            case "Others":
+                viewHolder.getTxtSpendingGroup().setText(R.string.OTHER);
+
+                break;
+            default:
+
+        }
+
 
         setAnimation(viewHolder.itemView, position);
 

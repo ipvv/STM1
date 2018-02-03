@@ -55,7 +55,7 @@ public class TotalSpendingQuantityFragment extends LifecycleFragment {
     TextView txtQuantity4_4;
 
 
-//    progressBar
+    //    progressBar
     @BindView(R.id.progressBar3)
     ProgressBar progressBar3;
 
@@ -160,50 +160,63 @@ public class TotalSpendingQuantityFragment extends LifecycleFragment {
     private void showTotalQuantityInUi1(@NonNull Double quantity, final TextView txtQuantity) {
         //round two places
         quantity = Math.round(quantity * 100.0) / 100.0;
-        String text = "GAS :" + String.valueOf(quantity);
+        String text = getContext().getString(R.string.GAS) + " : " + String.valueOf(quantity);
         txtQuantity.setText(text);
     }
 
     private void showTotalQuantityInUi2(@NonNull Double quantity, final TextView txtQuantity) {
         //round two places
         quantity = Math.round(quantity * 100.0) / 100.0;
-        String text = "FOOD :" + String.valueOf(quantity);
+        String text = getContext().getString(R.string.FOOD) + " : " + String.valueOf(quantity);
         txtQuantity.setText(text);
     }
 
     private void showTotalQuantityInUi3(@NonNull Double quantity, final TextView txtQuantity) {
         //round two places
         quantity = Math.round(quantity * 100.0) / 100.0;
-        String text = "CLOTHES :" + String.valueOf(quantity);
+        String text = getContext().getString(R.string.CLOTHES) + " : " + String.valueOf(quantity);
         txtQuantity.setText(text);
     }
 
     private void showTotalQuantityInUi4(@NonNull Double quantity, final TextView txtQuantity) {
         //round two places
         quantity = Math.round(quantity * 100.0) / 100.0;
-        String text = "OTHER :" + String.valueOf(quantity);
+        String text = getContext().getString(R.string.OTHER) + " : " + String.valueOf(quantity);
         txtQuantity.setText(text);
+
     }
 
 
     private void settheresult() {
 
-        CalculatePercentage(txtQuantity, txtQuantity1, txtQuantity1_1,progressBar3);
-        CalculatePercentage(txtQuantity, txtQuantity2, txtQuantity2_2,progressBar4);
-        CalculatePercentage(txtQuantity, txtQuantity3, txtQuantity3_3,progressBar5);
-        CalculatePercentage(txtQuantity, txtQuantity4, txtQuantity4_4,progressBar6);
+
+            CalculatePercentage(txtQuantity, txtQuantity1, txtQuantity1_1, progressBar3);
+
+
+
+            CalculatePercentage(txtQuantity, txtQuantity2, txtQuantity2_2, progressBar4);
+
+
+
+            CalculatePercentage(txtQuantity, txtQuantity3, txtQuantity3_3, progressBar5);
+
+
+
+            CalculatePercentage(txtQuantity, txtQuantity4, txtQuantity4_4, progressBar6);
+
 
 
     }
 
 
-    private void CalculatePercentage(final TextView total, final TextView obtained, final TextView result ,ProgressBar bar) {
+    private void CalculatePercentage(final TextView total, final TextView obtained, final TextView result, ProgressBar bar) {
 
-            try {
+        try {
+            if (!obtained.getText().equals("")) {
 
                 String obtained1 = obtained.getText().toString();
 
-                obtained1 = obtained1.replaceAll("[^0-9?!\\.]", "");
+                obtained1 = obtained1.replaceAll("\\D", "");
 
 //        Toast.makeText(getContext(),  obtained1, Toast.LENGTH_SHORT).show();
 
@@ -211,28 +224,33 @@ public class TotalSpendingQuantityFragment extends LifecycleFragment {
 
                 String total1 = total.getText().toString();
 
-                total1 = total1.replaceAll("[^0-9?!\\.]", "");
+                total1 = total1.replaceAll("\\D", "");
 
                 double value1 = Double.parseDouble(total1);
 
                 double Percentage = ((value * 100.0) / value1);
 
                 Percentage = Math.round(Percentage * 100.0) / 100.0;
-                int rsult = (int)Percentage;
 
-                String finalresult = String.valueOf(rsult) + "%";
+                int rsult = (int) Percentage;
+
+                String finalresult = String.valueOf(Percentage) + "%";
 
                 result.setText(finalresult);
 
 
-
-
                 bar.setProgress(rsult);
 
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
+            } else {
+
+                bar.setProgress(0);
             }
 
+
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return;
     }
 
     private class LongOperation extends AsyncTask<String, Void, String> {

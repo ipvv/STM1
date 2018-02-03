@@ -18,4 +18,27 @@
     <string name="tab_text_2">شهري</string>
     <string name="tab_text_3">اسبوعي</string>
     <string name="action_settings">الضبط</string>
+
+    <string name="GAS">بنزين</string>
+    <string name="FOOD">طعام</string>
+    <string name="CLOTHES">ملابس</string>
+    <string name="OTHER">اخرى</string>
+
+    <string-array name="groups">
+        <item>بنزين</item>
+        <item>طعام</item>
+        <item>ثياب</item>
+        <item>اخرى</item>
+    </string-array>
+
+    <string name="sett_reminder_header">تعيين تذكير</string>
+    <string name="sett_reminder_label">ذكرني</string>
+    <string name="sett_reminder_desc">سوف نذكرك لكي تقوم بتسجيل مصاريفك</string>
+    <string name="sett_reminder_time_label">عين وقت التذكير</string>
+    <string name="sett_reminder_time_content">8 : 00 PM</string>
+    <string name="notifications_title">تذكر ان تسجل مصاريفك</string>
+    <string name="notifications_content">كل يوم</string>
+
+
+
 </resources>

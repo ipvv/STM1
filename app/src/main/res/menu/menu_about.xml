@@ -6,13 +6,20 @@
         android:id="@+id/chart"
         android:icon="@drawable/chartpic"
         android:title="Chart"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/setting"
+        android:icon="@drawable/alarm_icon"
+        android:title="alarm"
+        app:showAsAction="always" />
     <item
         android:id="@+id/about"
         android:icon="@drawable/about"
         android:title="about"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
+
     <item
         android:id="@+id/exit"
         android:title="Exit" />
+
 </menu>

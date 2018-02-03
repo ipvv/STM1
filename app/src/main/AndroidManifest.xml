@@ -2,11 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vsahin.moneycim">
 
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
 
     <uses-permission android:name="android.permission.CAMERA" />
+
+
 
     <application
         android:name=".MoneycimApp"
@@ -29,11 +33,31 @@
         </activity>
         <activity android:name=".View.MainActivity" />
         <activity android:name=".View.OCR_Scan_Receipt.OcrCaptureActivity" />
+        <activity
+            android:name=".ChartList.chartlist"
+            android:label="@string/title_activity_chartlist"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Alarm.AlarmActivity"
+            android:label="@string/title_activity_chartlist"
+            android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".chartlist"
-            android:label="@string/title_activity_chartlist"
-            android:theme="@style/AppTheme"></activity>
+            android:name=".settings.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".View.MainActivity"
+            android:theme="@style/settingTheme">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.vsahin.moneycim.View.MainActivity" />
+        </activity>
+        <receiver android:name=".AlarmReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

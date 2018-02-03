@@ -9,6 +9,7 @@ import android.arch.persistence.room.Query;
 import com.vsahin.moneycim.Model.Entity.RawSpending;
 import com.vsahin.moneycim.Model.Pojo.Spending;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,6 +21,12 @@ public interface SpendingDao {
 
     @Query("SELECT * FROM SPENDING INNER JOIN SPENDING_GROUP ON SPENDING.GROUP_ID = SPENDING_GROUP.GROUP_ID ORDER BY SPENDING.DATE DESC")
     LiveData<List<Spending>> getSpendingsWithGroups();
+
+    @Query("SELECT * FROM SPENDING INNER JOIN SPENDING_GROUP ON SPENDING.GROUP_ID = SPENDING_GROUP.GROUP_ID ORDER BY SPENDING.DATE DESC")
+    List<Spending> getSpendingsdate();
+
+
+
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void addSpending(RawSpending s);
@@ -39,7 +46,7 @@ public interface SpendingDao {
     @Query("SELECT SUM(QUANTITY) FROM SPENDING where SPENDING.group_id=4")
     LiveData<Double> getTotalSpendingQuantity4();
     // i change it
-    @Query("SELECT SUM(QUANTITY) FROM SPENDING,SPENDING_GROUP WHERE SPENDING.GROUP_ID = SPENDING_GROUP.GROUP_ID GROUP BY SPENDING_GROUP.GROUP_ID ORDER BY SPENDING.DATE DESC")
+    @Query("SELECT SUM(QUANTITY) FROM SPENDING,SPENDING_GROUP WHERE SPENDING.GROUP_ID = SPENDING_GROUP.GROUP_ID GROUP BY SPENDING_GROUP.GROUP_ID ")
     List<Double> getTotalByGroub();
 
     @Query("DELETE FROM SPENDING WHERE ID = :id")

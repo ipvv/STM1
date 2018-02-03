@@ -6,4 +6,16 @@
     <color name="colorPrimaryLight">#b5f6f3</color>
     <color name="backg">#04adbf</color>
     <color name="centertext">#E2FFFFFF</color>
+
+    <color name="textcolorHeader">#069ECF</color>
+    <color name="textColorPrimary">#000000</color>
+    <color name="textColorSecondary">#A5A5A5</color>
+
+    <!--switch color-->
+
+    <color name="thumb_active">#069ECF</color>
+    <color name="track_active">#66069ECF</color>
+
+    <color name="thumb_inactive">#A5A5A5</color>
+    <color name="track_inactive">#66A5A5A5</color>
 </resources>

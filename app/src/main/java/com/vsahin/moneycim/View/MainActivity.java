@@ -15,10 +15,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.vsahin.moneycim.Alarm.AlarmActivity;
+import com.vsahin.moneycim.BuildConfig;
 import com.vsahin.moneycim.R;
 import com.vsahin.moneycim.View.AddAndEditSpending.AddAndEditSpendingFragment;
 import com.vsahin.moneycim.View.SpendingList.SpendingListFragment;
-import com.vsahin.moneycim.chartlist;
+import com.vsahin.moneycim.ChartList.chartlist;
+import com.vsahin.moneycim.settings.SettingsActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -79,7 +82,13 @@ public class MainActivity extends AppCompatActivity {
 // 2. Chain together various setter methods to set the dialog characteristics
 
                 builder.setMessage("STM Is an application for spending tracking money " +
-                        "this application is graduation project for uqu University   ")
+                        "this application is graduation project for uqu University."+"\n\n-TEAM MEMBERS \n\n" +
+                        "# SAED SAAD\n" +
+                        "# FHAD ALTWELY\n" +
+                        "# RYADE ALHRBY\n" +
+                        "# ABEDALELH ALSHREF\n"  +
+                        "\nAPP VERSION : " +
+                        BuildConfig.VERSION_NAME)
                         .setTitle("about")
                         .setIcon(R.drawable.stmproject);
 
@@ -91,6 +100,15 @@ public class MainActivity extends AppCompatActivity {
             case R.id.chart:
                 Intent intent = new Intent(this, chartlist.class);
                 startActivity(intent);
+
+                return true;
+            case R.id.exit:
+               finish();
+
+                return true;
+            case R.id.setting:
+                Intent intent1 = new Intent(this, AlarmActivity.class);
+                startActivity(intent1);
 
                 return true;
 

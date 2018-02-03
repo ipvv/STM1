@@ -26,6 +26,9 @@ public class SpendingRepository {
     public LiveData<List<Spending>> getSpendings(){
         return appDatabase.spendingDao().getSpendingsWithGroups();
     }
+    public List<Spending> GetSpendingsdate(){
+        return appDatabase.spendingDao().getSpendingsdate();
+    }
     
 // i change it
     public List<Double> GetTotalSpendingforchart(){
