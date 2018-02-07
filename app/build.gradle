@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.vsahin.moneycim"
+        applicationId "saedc.example.com"
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
@@ -101,3 +101,4 @@ dependencies {
     implementation 'com.tapadoo.android:alerter:2.0.4'
 
 }
+apply plugin: 'com.google.gms.google-services'

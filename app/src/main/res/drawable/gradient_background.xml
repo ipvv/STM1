@@ -4,7 +4,7 @@
     android:layout_width="match_parent">
     <item>
         <shape>
-            <gradient android:angle="90" android:endColor="@color/colorPrimary" android:startColor="@color/colorPrimaryLight" android:type="linear" />
+            <gradient android:angle="90" android:endColor="@color/colorPrimary" android:startColor="#26757F" android:type="linear" />
         </shape>
     </item>
 </selector>

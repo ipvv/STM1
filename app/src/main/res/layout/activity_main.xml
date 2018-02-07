@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<android.support.design.widget.CoordinatorLayout
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+<android.support.design.widget.CoordinatorLayout
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
-    tools:context="com.vsahin.moneycim.View.MainActivity">
+    tools:context="saedc.example.com.View.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -27,7 +34,7 @@
 
             <fragment
                 android:id="@+id/fragment_quantity"
-                android:name="com.vsahin.moneycim.View.TotalSpendingQuantity.TotalSpendingQuantityFragment"
+                android:name="saedc.example.com.View.TotalSpendingQuantity.TotalSpendingQuantityFragment"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_gravity="top|center_horizontal"
@@ -65,3 +72,13 @@
         app:srcCompat="@drawable/icon_add"/>
 
 </android.support.design.widget.CoordinatorLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main2"
+        app:menu="@menu/activity_main2_drawer" />
+
+</android.support.v4.widget.DrawerLayout>

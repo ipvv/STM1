@@ -117,6 +117,12 @@
     <string name="sett_reminder_time_content">8 : 00 PM</string>
     <string name="notifications_title">remember to record your Spendings</string>
     <string name="notifications_content">everyday</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="title_activity_main2">Main2Activity</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="remind_me">Remind Me</string>
 
 </resources>

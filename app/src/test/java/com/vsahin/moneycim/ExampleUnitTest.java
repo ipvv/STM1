@@ -1,4 +1,4 @@
-package com.vsahin.moneycim;
+package saedc.example.com;
 
 import org.junit.Test;
 

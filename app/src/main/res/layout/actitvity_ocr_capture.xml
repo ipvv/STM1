@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     android:keepScreenOn="true">
 
-    <com.vsahin.moneycim.View.OCR_Scan_Receipt.CameraSourcePreview
+    <saedc.example.com.View.OCR_Scan_Receipt.CameraSourcePreview
         android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.vsahin.moneycim.View.OCR_Scan_Receipt.GraphicOverlay
+        <saedc.example.com.View.OCR_Scan_Receipt.GraphicOverlay
             android:id="@+id/graphicOverlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </com.vsahin.moneycim.View.OCR_Scan_Receipt.CameraSourcePreview>
+    </saedc.example.com.View.OCR_Scan_Receipt.CameraSourcePreview>
 
 </LinearLayout>

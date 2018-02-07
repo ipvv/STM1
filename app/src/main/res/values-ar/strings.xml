@@ -38,7 +38,7 @@
     <string name="sett_reminder_time_content">8 : 00 PM</string>
     <string name="notifications_title">تذكر ان تسجل مصاريفك</string>
     <string name="notifications_content">كل يوم</string>
-
+    <string name="remind_me">تعيين وقت التذكير</string>
 
 
 </resources>

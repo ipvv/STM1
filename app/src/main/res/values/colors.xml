@@ -18,4 +18,5 @@
 
     <color name="thumb_inactive">#A5A5A5</color>
     <color name="track_inactive">#66A5A5A5</color>
+    <color name="type_with_bar">#1d04adbf</color>
 </resources>
