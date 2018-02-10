@@ -1,4 +1,4 @@
-package saedc.example.com.ChartList;
+package saedc.example.com.View.ChartList;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

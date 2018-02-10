@@ -5,6 +5,8 @@ import android.arch.lifecycle.MutableLiveData;
 
 import saedc.example.com.Model.Database.AppDatabase;
 import saedc.example.com.Model.Entity.RawSpending;
+
+import saedc.example.com.Model.Entity.Saving;
 import saedc.example.com.Model.Entity.SpendingGroup;
 import saedc.example.com.Model.Pojo.Spending;
 
@@ -22,6 +24,13 @@ public class SpendingRepository {
     public SpendingRepository(AppDatabase appDatabase) {
         this.appDatabase = appDatabase;
     }
+
+
+
+    public LiveData<List<Saving>> Getsaving(){
+        return appDatabase.savingDao().getsaving();
+    }
+
 
     public LiveData<List<Spending>> getSpendings(){
         return appDatabase.spendingDao().getSpendingsWithGroups();

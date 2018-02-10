@@ -1,8 +1,7 @@
-package saedc.example.com.ChartList;
+package saedc.example.com.View.ChartList;
 
 
 import android.arch.lifecycle.LifecycleFragment;
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 
@@ -12,8 +11,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import android.widget.Toast;
 
 
 import com.github.mikephil.charting.charts.PieChart;
@@ -29,6 +26,7 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import com.tapadoo.alerter.Alerter;
+
 import saedc.example.com.R;
 import saedc.example.com.View.TotalSpendingQuantity.TotalSpendingQuantityViewModel;
 
@@ -49,7 +47,7 @@ public class tabchart1 extends LifecycleFragment {
     @BindView(R.id.barch1)
     PieChart pieChart;
 
-    TotalSpendingQuantityViewModel viewModel;
+    chartViewModel viewModel;
 
 
     @Nullable
@@ -65,10 +63,11 @@ public class tabchart1 extends LifecycleFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(this).get(TotalSpendingQuantityViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(chartViewModel.class);
 
 
         subscribeTotalQuantity();
+
     }
 
     private void subscribeTotalQuantity() {
@@ -76,11 +75,14 @@ public class tabchart1 extends LifecycleFragment {
             @Override
             public void onChanged(final Double quantity) {
                 if (quantity != null) {
-                    showTotalQuantityInUi(quantity);
+
+                    try {
+                        showTotalQuantityInUi(quantity);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
 
-                } else {
-                    showTotalQuantityInUi(0.0);
                 }
             }
         });
@@ -103,19 +105,32 @@ public class tabchart1 extends LifecycleFragment {
         labels.add(getContext().getString(R.string.OTHER));
 
 
-        for (Double piech : pie) {
+        if (quantity != null) {
+            for (Double piech : pie) {
 
-            double Percentage = ((piech * 100.0) / quantity);
+                if (piech != null) {
+                    double Percentage = ((piech * 100.0) / quantity);
 
-            entrie.add(Percentage);
+                    entrie.add(Percentage);
+                } else {
+                    entrie.add(0.0);
 
+
+                }
+
+
+            }
+
+            if (entrie.size() != 0) {
+                for (int i = 0; i < labels.size(); i++) {
+                    double it = entrie.get(i);
+
+                    entries.add(new PieEntry((float) it, labels.get(i)));
+
+                }
+            }
 
         }
-        for (int i=0;i<labels.size();i++){
-            double it =entrie.get(i);
-            entries.add(new PieEntry((float) it, labels.get(i)));
-        }
-
 
 
         PieDataSet set = new PieDataSet(entries, "CHART");
@@ -139,13 +154,12 @@ public class tabchart1 extends LifecycleFragment {
         pieChart.setHoleRadius(50);
         pieChart.getDescription().setEnabled(true);
         pieChart.setDescription(Descriptio);
-        pieChart.setDragDecelerationFrictionCoef(0.95f);
+//        pieChart.setDragDecelerationFrictionCoef(0.95f);
         pieChart.notifyDataSetChanged();
 
         pieChart.invalidate();
         pieChart.setTransparentCircleRadius(61f);
-        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener()
-        {
+        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
 
 
             @Override
@@ -154,10 +168,9 @@ public class tabchart1 extends LifecycleFragment {
                 PieEntry pe = (PieEntry) e;
 
 
-
                 Alerter.create(getActivity())
                         .setTitle("Alert Title")
-                        .setText(pe.getLabel()+" "+pe.getValue())
+                        .setText(pe.getLabel() + " " + pe.getValue())
                         .enableProgress(false)
                         .setIcon(R.drawable.about)
                         .setProgressColorRes(R.color.colorAccent)

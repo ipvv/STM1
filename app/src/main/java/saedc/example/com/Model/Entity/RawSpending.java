@@ -6,11 +6,10 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
 
-import saedc.example.com.Model.Database.Converters;
-import saedc.example.com.Model.Entity.SpendingGroup;
-
 import java.io.Serializable;
 import java.util.Date;
+
+import saedc.example.com.Model.Database.Converters;
 
 
 @Entity(tableName = "spending")

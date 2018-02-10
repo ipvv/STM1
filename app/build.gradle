@@ -95,10 +95,11 @@ dependencies {
     //Google Vision API
     compile "com.google.android.gms:play-services-vision:$googleVisionApiVersion"
 
-// ShimmerLayout
+    // ShimmerLayout
     implementation 'io.supercharge:shimmerlayout:1.1.0'
-//  Alerter
+    //  Alerter
     implementation 'com.tapadoo.android:alerter:2.0.4'
+    // firebase messaging
 
 }
 apply plugin: 'com.google.gms.google-services'

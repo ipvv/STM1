@@ -94,8 +94,15 @@ public class TotalSpendingQuantityFragment extends LifecycleFragment {
             @Override
             public void onChanged(final Double quantity) {
                 if (quantity != null) {
+
+
+
+
                     showTotalQuantityInUi(quantity, txtQuantity);
 
+
+
+                    new LongOperation().execute();
 
                 } else {
                     showTotalQuantityInUi(0.0, txtQuantity);
@@ -139,7 +146,7 @@ public class TotalSpendingQuantityFragment extends LifecycleFragment {
                     public void onChanged(final Double quantity) {
                         if (quantity != null) {
                             showTotalQuantityInUi4(quantity, txtQuantity4);
-                            new LongOperation().execute("");
+
 
                         } else {
                             showTotalQuantityInUi4(0.0, txtQuantity4);
@@ -188,26 +195,11 @@ public class TotalSpendingQuantityFragment extends LifecycleFragment {
     }
 
 
-    private void settheresult() {
-
-
-            CalculatePercentage(txtQuantity, txtQuantity1, txtQuantity1_1, progressBar3);
 
 
 
-            CalculatePercentage(txtQuantity, txtQuantity2, txtQuantity2_2, progressBar4);
 
 
-
-            CalculatePercentage(txtQuantity, txtQuantity3, txtQuantity3_3, progressBar5);
-
-
-
-            CalculatePercentage(txtQuantity, txtQuantity4, txtQuantity4_4, progressBar6);
-
-
-
-    }
 
 
     private void CalculatePercentage(final TextView total, final TextView obtained, final TextView result, ProgressBar bar) {
@@ -243,7 +235,9 @@ public class TotalSpendingQuantityFragment extends LifecycleFragment {
                 bar.setProgress(rsult);
 
             } else {
+                String finalresult =  "0.0%";
 
+                result.setText(finalresult);
                 bar.setProgress(0);
             }
 
@@ -258,13 +252,34 @@ public class TotalSpendingQuantityFragment extends LifecycleFragment {
 
         @Override
         protected String doInBackground(String... params) {
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+
+                    e.printStackTrace();
+                }
+
             return "";
         }
 
         @Override
         protected void onPostExecute(String result) {
 
-            settheresult();
+            CalculatePercentage(txtQuantity, txtQuantity1, txtQuantity1_1, progressBar3);
+
+
+
+            CalculatePercentage(txtQuantity, txtQuantity2, txtQuantity2_2, progressBar4);
+
+
+
+            CalculatePercentage(txtQuantity, txtQuantity3, txtQuantity3_3, progressBar5);
+
+
+
+            CalculatePercentage(txtQuantity, txtQuantity4, txtQuantity4_4, progressBar6);
+
         }
 
         @Override

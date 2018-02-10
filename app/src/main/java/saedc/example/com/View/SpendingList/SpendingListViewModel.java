@@ -19,7 +19,6 @@ public class SpendingListViewModel extends AndroidViewModel {
 
     @Inject public SpendingRepository spendingRepository;
     final public LiveData<List<Spending>> spendings;
-    final public List<Spending> spendingdate;
 
 
     public SpendingListViewModel(Application application) {
@@ -27,15 +26,12 @@ public class SpendingListViewModel extends AndroidViewModel {
         ((MoneycimApp)getApplication()).getAppComponent().inject(this);
 
         spendings = getSpendings();
-        spendingdate = getDate();
     }
 
     public LiveData<List<Spending>> getSpendings(){
         return spendingRepository.getSpendings();
     }
-    public List<Spending> getDate(){
-        return spendingRepository.GetSpendingsdate();
-    }
+
 
     public void deleteSpending(int id){
         spendingRepository.deleteSpending(id);

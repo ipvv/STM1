@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -23,17 +22,19 @@ import android.widget.Toast;
 
 import saedc.example.com.Alarm.AlarmActivity;
 import saedc.example.com.BuildConfig;
+import saedc.example.com.Model.Entity.Saving;
 import saedc.example.com.R;
 import saedc.example.com.View.AddAndEditSpending.AddAndEditSpendingFragment;
+import saedc.example.com.View.SavingList.SavingActivity;
 import saedc.example.com.View.SpendingList.SpendingListFragment;
-import saedc.example.com.ChartList.chartlist;
+import saedc.example.com.View.ChartList.chartlist;
 
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     FragmentManager fragmentManager;
     InputMethodManager imm;
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @BindView(R.id.app_bar_layout)
     AppBarLayout appBarLayout;
+
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,11 +99,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 // 2. Chain together various setter methods to set the dialog characteristics
 
                 builder.setMessage("STM Is an application for spending tracking money " +
-                        "this application is graduation project for uqu University."+"\n\n-TEAM MEMBERS \n\n" +
+                        "this application is graduation project for uqu University." + "\n\n-TEAM MEMBERS \n\n" +
                         "# SAED SAAD\n" +
                         "# FHAD ALTWELY\n" +
                         "# RYADE ALHRBY\n" +
-                        "# ABEDALELH ALSHREF\n"  +
+                        "# ABEDALELH ALSHREF\n" +
                         "\nAPP VERSION : " +
                         BuildConfig.VERSION_NAME)
                         .setTitle("about")
@@ -112,17 +115,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 dialog.show();
                 return true;
             case R.id.chart:
-                Intent intent = new Intent(this, chartlist.class);
+                 intent = new Intent(this, chartlist.class);
                 startActivity(intent);
-
+//overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                 return true;
             case R.id.exit:
-               finish();
+                finish();
 
                 return true;
             case R.id.setting:
-                Intent intent1 = new Intent(this, AlarmActivity.class);
-                startActivity(intent1);
+                 intent = new Intent(this, AlarmActivity.class);
+                startActivity(intent);
+
+                return true;
+            case R.id.saving:
+                intent = new Intent(this, SavingActivity.class);
+                startActivity(intent);
 
                 return true;
 
@@ -218,9 +226,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-            Toast.makeText(this,"hi6rjtehdsgxyhwusjrh",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_gallery) {
-            Toast.makeText(this,"hiiuw5ystegyhui6oeiujdrhhdi",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "cancle", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_slideshow) {
             Intent intent = new Intent(this, chartlist.class);
             startActivity(intent);

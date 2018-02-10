@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 1,
-    "identityHash": "047ad234a995cd05e264df6f589287f3",
+    "version": 2,
+    "identityHash": "4a897f4bafc247d4533a1f244afd9154",
     "entities": [
       {
         "tableName": "spending",
@@ -76,7 +76,7 @@
       },
       {
         "tableName": "saving",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `startdate` INTEGER, `enddate` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `item_price` REAL, `item_saveing` REAL, `enddate` INTEGER)",
         "fields": [
           {
             "fieldPath": "id",
@@ -91,9 +91,15 @@
             "notNull": false
           },
           {
-            "fieldPath": "start_date",
-            "columnName": "startdate",
-            "affinity": "INTEGER",
+            "fieldPath": "item_price",
+            "columnName": "item_price",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "item_saveing",
+            "columnName": "item_saveing",
+            "affinity": "REAL",
             "notNull": false
           },
           {
@@ -115,7 +121,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"047ad234a995cd05e264df6f589287f3\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"4a897f4bafc247d4533a1f244afd9154\")"
     ]
   }
 }

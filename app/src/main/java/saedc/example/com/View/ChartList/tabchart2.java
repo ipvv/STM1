@@ -1,25 +1,19 @@
-package saedc.example.com.ChartList;
+package saedc.example.com.View.ChartList;
 
 
 import android.arch.lifecycle.LifecycleFragment;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -48,7 +42,7 @@ public class tabchart2 extends LifecycleFragment {
 
     SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM"); //you can add dd/MM/yyyy for date
     ArrayList<Spending> spendingList = new ArrayList<>();
-    SpendingListViewModel viewModel;
+    chartViewModel viewModel;
 
     @Nullable
     @Override
@@ -64,7 +58,7 @@ public class tabchart2 extends LifecycleFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(this).get(SpendingListViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(chartViewModel.class);
 
 
         ArrayList<BarData> list = new ArrayList<BarData>();
@@ -101,23 +95,23 @@ public class tabchart2 extends LifecycleFragment {
 
 
     private BarData subscribeSpendings( int cnt ) {
-        List<Spending> youngUsers = viewModel.getDate();
+        List<Spending> Spendingdata = viewModel.getDate();
 
 
 //        LiveData<List<Spending>> youngUsers1 = viewModel.getSpendings();
         StringBuilder tmp = new StringBuilder(); // Using default 16 character size
         StringBuilder tmd = new StringBuilder(); // Using default 16 character size
         ArrayList<Date> dates = new ArrayList<Date>();
-        ArrayList<Double> name = new ArrayList<Double>();
-        ArrayList<String> grub = new ArrayList<String>();
+        ArrayList<Double> quantity = new ArrayList<Double>();
+        ArrayList<String> graph = new ArrayList<String>();
 
         String[] months = new DateFormatSymbols().getMonths();
 
-        for (Spending group: youngUsers){
+        for (Spending group: Spendingdata){
 
             dates.add(group.getRawSpending().getDate());
-            name.add(group.getRawSpending().getQuantity());
-            grub.add(group.getGroupName());
+            quantity.add(group.getRawSpending().getQuantity());
+            graph.add(group.getGroupName());
         }
 
 
@@ -136,7 +130,7 @@ public class tabchart2 extends LifecycleFragment {
         ArrayList<BarEntry> entries = new ArrayList<BarEntry>();
 
         for (int i = 0; i < dates.size(); i++) {
-            double pr =name.get(i);
+            double pr =quantity.get(i);
             entries.add(new BarEntry(i, (float)(pr) ));
         }
 

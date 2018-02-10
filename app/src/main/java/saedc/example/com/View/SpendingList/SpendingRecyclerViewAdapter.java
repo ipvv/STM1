@@ -33,7 +33,7 @@ public class SpendingRecyclerViewAdapter extends RecyclerView.Adapter<saedc.exam
     private List<Spending> spendings;
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //you can add dd/MM/yyyy for date
     private  LayoutInflater layoutInflater;
-    saedc.example.com.View.SpendingList.RecyclerVewItemClickListener recyclerVewItemClickListener;
+    RecyclerVewItemClickListener recyclerVewItemClickListener;
     private int lastPosition = -1;
     Context context;
 
